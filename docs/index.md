@@ -12,7 +12,7 @@ It allows you to:
 
 ## Current Structure
 
-![UniSim-Bridge Fluxogram](/assets/fluxogramas_unisimbridge-drawio-1.png)
+![UniSim-Bridge Fluxogram](./assets/fluxogramas_unisimbridge-drawio-1.png)
 
 
 The framework is currently composed of three main files:
