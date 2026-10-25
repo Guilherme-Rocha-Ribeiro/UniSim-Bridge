@@ -101,7 +101,7 @@ note = "octicons/tag-16"
 
 [[project.extra.social]]
 icon = "fontawesome/brands/github"
-link = "https://github.com/grocharibeiro/"
+link = "https://github.com/Guilherme-Rocha-Ribeiro/UniSim-Bridge"
 
 [[project.extra.social]]
 icon = "fontawesome/brands/python"
