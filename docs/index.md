@@ -1,4 +1,4 @@
-# UniSim Connector
+# UniSim-Bridge
 
 The **UniSim-Bridge** is a Python framework developed by the **PROTEC group** of the [Polytechnic School of the Federal University of Bahia](https://eng.ufba.br/) to automate Honeywell&trade; UniSim Design Suite&reg; simulations through the Microsoft COM (Component Object Model) protocol.
 
@@ -12,7 +12,7 @@ It allows you to:
 
 ## Current Structure
 
-![UniSim-Bridge Fluxogram](../assets/fluxogramas_unisimbridge-drawio-1.png)
+![UniSim-Bridge Fluxogram](/assets/fluxogramas_unisimbridge-drawio-1.png)
 
 
 The framework is currently composed of three main files:
