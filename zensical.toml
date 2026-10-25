@@ -1,14 +1,14 @@
 [project]
-site_url = "https://www.example.com/"
+site_url = "https://guilherme-rocha-ribeiro.github.io/UniSim-Bridge/"
 site_name = "UniSim-Bridge Documentation"
 
 
 site_description = "Documentation for the 3 file UniSim-Bridge framework, providing an overview of its features, installation instructions, and reference materials for users and developers."
 site_author = "Guilherme Rocha Ribeiro"
-
+site_dir = "site"
 # copyright = "Copyright &copy; 2026 Your name"
 
-# repo_url = "https://github.com/user/repo"
+repo_url = "https://github.com/Guilherme-Rocha-Ribeiro/UniSim-Bridge"
 # repo_name = "user/repo"
 # edit_uri = "edit/main/docs/"
 
