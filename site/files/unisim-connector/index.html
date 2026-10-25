@@ -1,0 +1,3109 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://www.example.com/files/unisim-connector/">
+      
+      
+      
+        <link rel="prev" href="../setup/">
+      
+      
+        <link rel="next" href="../main/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.71">
+    
+    
+      
+        <title>UnisimConnector.py - UniSim-Bridge Documentation</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.e442bf79.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1%207.775V2.75C1%201.784%201.784%201%202.75%201h5.025c.464%200%20.91.184%201.238.513l6.25%206.25a1.75%201.75%200%200%201%200%202.474l-5.026%205.026a1.75%201.75%200%200%201-2.474%200l-6.25-6.25A1.75%201.75%200%200%201%201%207.775m1.5%200c0%20.066.026.13.073.177l6.25%206.25a.25.25%200%200%200%20.354%200l5.025-5.025a.25.25%200%200%200%200-.354l-6.25-6.25a.25.25%200%200%200-.177-.073H2.75a.25.25%200%200%200-.25.25ZM6%205a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="UniSim-Bridge Documentation" class="md-header__button md-logo" aria-label="UniSim-Bridge Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UniSim-Bridge Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UnisimConnector.py
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="slate" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="UniSim-Bridge Documentation" class="md-nav__button md-logo" aria-label="UniSim-Bridge Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    UniSim-Bridge Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Overview
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Getting Started
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Getting Started
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/first-simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  First Simulation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Files
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Files
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  setup.py
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  UnisimConnector.py
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  UnisimConnector.py
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#file-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        File layout
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Operation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Class structure
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructor-and-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Constructor and attributes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Public interface
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface-used-by-the-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Interface used by the connector
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#life-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Life cycle
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Methods
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_build_object" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>_build_object()</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build_properties_cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>build_properties_cache()</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_build_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>_build_data()</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_update_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>_update_data()</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_insert_row_to_db" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>_insert_row_to_db()</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_operation_table" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>create_operation_table()</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_save_to_csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>_save_to_csv()</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overridden-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Overridden behavior
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equipment-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Equipment classes
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materialstreams" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MaterialStreams
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MaterialStreams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-levels-of-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Three levels of data
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-each-level-is-stored" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How each level is stored
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizing-the-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Customizing the properties
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reading the data
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#behavior-to-be-aware-of" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Behavior to be aware of
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spreadsheets" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Spreadsheets
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulationconnector" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SimulationConnector
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SimulationConnector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Creating the connector
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Main methods
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finishing-a-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Finishing a run
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Finishing a run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sequence
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Output files
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closing-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Closing behavior
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Recommended pattern
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Functions
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#easy_setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Easy_Setup()
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Easy_Setup()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Arguments
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-it-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What it does
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Example
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Notes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build_objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Build_Objects()
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Update()
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finish" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Finish()
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discovery-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discovery helpers
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-database-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Custom database methods
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Database
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extending-the-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Extending the library
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Known limitations
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  main.py
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Reference
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Reference
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operations-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Operations
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/com-navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  COM Navigation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/properties-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Object Properties
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/utilities-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Utilities Functions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#file-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        File layout
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Operation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Class structure
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructor-and-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Constructor and attributes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Public interface
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface-used-by-the-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Interface used by the connector
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#life-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Life cycle
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Methods
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_build_object" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>_build_object()</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build_properties_cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>build_properties_cache()</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_build_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>_build_data()</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_update_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>_update_data()</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_insert_row_to_db" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>_insert_row_to_db()</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_operation_table" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>create_operation_table()</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_save_to_csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>_save_to_csv()</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overridden-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Overridden behavior
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equipment-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Equipment classes
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materialstreams" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MaterialStreams
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MaterialStreams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-levels-of-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Three levels of data
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-each-level-is-stored" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How each level is stored
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizing-the-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Customizing the properties
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reading the data
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#behavior-to-be-aware-of" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Behavior to be aware of
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spreadsheets" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Spreadsheets
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulationconnector" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SimulationConnector
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SimulationConnector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Creating the connector
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Main methods
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finishing-a-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Finishing a run
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Finishing a run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sequence
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Output files
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closing-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Closing behavior
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Recommended pattern
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Functions
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#easy_setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Easy_Setup()
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Easy_Setup()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Arguments
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-it-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What it does
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Example
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Notes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build_objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Build_Objects()
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Update()
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finish" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Finish()
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discovery-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discovery helpers
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-database-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Custom database methods
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Database
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extending-the-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Extending the library
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Known limitations
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../setup/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Files
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="unisimconnectorpy">UnisimConnector.py<a class="headerlink" href="#unisimconnectorpy" title="Permanent link">&para;</a></h1>
+<p><code>UnisimConnector.py</code> is the <strong>library</strong>. It connects Python to UniSim Design through COM, reads the properties of the objects you selected at every time step, and stores them in an SQLite database. You normally do not edit it. You import one class from it:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">UnisimConnector</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimulationConnector</span>
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Requirements</p>
+<ul>
+<li>Windows with UniSim Design installed (the library uses <code>win32com</code>).</li>
+<li>Python packages: <code>pywin32</code> and <code>pandas</code>. <code>sqlite3</code> is part of the standard library.</li>
+<li>Type hints such as <code>list[str]</code> require Python 3.9 or newer.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Authors</p>
+<p>Guilherme Ribeiro, Daniel Diniz, Raony Fontes.</p>
+</div>
+<hr />
+<h2 id="file-layout">File layout<a class="headerlink" href="#file-layout" title="Permanent link">&para;</a></h2>
+<p>The file is a single module with three layers:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>UnisimConnector.py
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── binary_search()            utility
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>├── Operation                  base class (shared logic)
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│   ├── MaterialStreams        + StreamComponents, MaterialStreams.Phase
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│   ├── Valves
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│   ├── Pumps
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│   ├── Compressors
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│   ├── Controllers
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│   ├── HeatExchangers
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│   ├── Flashtanks
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│   ├── Heaters
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│   ├── Coolers
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│   └── Pipesegs
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>├── Spreadsheets               separate class (not an Operation subclass)
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>│
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>└── SimulationConnector        orchestrator, the public entry point
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>binary_search</code></td>
+<td>Fast name lookup in a sorted list of strings</td>
+</tr>
+<tr>
+<td><code>Operation</code></td>
+<td>Validates names, caches COM property objects, creates tables, inserts rows, exports CSV</td>
+</tr>
+<tr>
+<td><code>MaterialStreams</code></td>
+<td>Bulk, component-level and phase-level data of streams</td>
+</tr>
+<tr>
+<td><code>StreamComponents</code></td>
+<td>Holder of component data (mass/molar flows and fractions)</td>
+</tr>
+<tr>
+<td><code>Spreadsheets</code></td>
+<td>Reads individual cells of spreadsheet operations</td>
+</tr>
+<tr>
+<td>Equipment classes</td>
+<td>Only declare the UniSim type name and the default properties</td>
+</tr>
+<tr>
+<td><code>SimulationConnector</code></td>
+<td>Opens UniSim, owns all handlers, runs steps, finishes the run</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="operation">Operation<a class="headerlink" href="#operation" title="Permanent link">&para;</a></h2>
+<p><code>Operation</code> is the base class of every equipment handler. It contains all the shared logic (name validation, property cache, table creation, row insertion, CSV export), so a subclass only declares <strong>what</strong> to read. The concepts (what an operation is in UniSim, which types exist and which properties they expose) are explained in <a href="../../reference/operations-reference/">Operations</a>. This section describes the code.</p>
+<h3 id="class-structure">Class structure<a class="headerlink" href="#class-structure" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Operation                          shared logic
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├── Valves           'valveop'
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>├── Pumps            'pumpop'
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>├── Compressors      'compressor'
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>├── Controllers      'fbcontrolop'
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>├── HeatExchangers   'heatexop'
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>├── Flashtanks       'flashtank'
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>├── Heaters          'heaterop'
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>├── Coolers          'coolerop'
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>├── Pipesegs         'pipeseg'          overrides _update_data
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>└── MaterialStreams  'materialstream'   overrides _build_data, _update_data, _save_to_csv
+</span></code></pre></div>
+<p><code>Spreadsheets</code> does not inherit from <code>Operation</code> because it reads cells, not named properties, but it implements the same four methods, so <code>SimulationConnector</code> treats it like the others (see <a href="#interface-used-by-the-connector">Interface used by the connector</a>).</p>
+<p>A subclass defines only:</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_operation_title</code></td>
+<td>UniSim <code>TypeName</code> of the objects. It is also used as the <strong>table name</strong>.</td>
+</tr>
+<tr>
+<td><code>properties</code></td>
+<td><code>{property: unit}</code> recorded by default.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="constructor-and-attributes">Constructor and attributes<a class="headerlink" href="#constructor-and-attributes" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">Operation</span><span class="p">(</span><span class="n">db_conn</span><span class="p">:</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Connection</span><span class="p">,</span> <span class="n">db_tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cursor</span><span class="p">:</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Cursor</span><span class="p">)</span>
+</span></code></pre></div>
+<p>The connection, the cursor and the tag are <strong>shared</strong> with the <code>SimulationConnector</code> and with all other handlers.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_operation_title</code></td>
+<td><code>str</code></td>
+<td>UniSim <code>TypeName</code>. Overridden by each subclass.</td>
+</tr>
+<tr>
+<td><code>_names</code></td>
+<td><code>list[str]</code></td>
+<td>Names requested in the setup. Exposed as <code>names</code>.</td>
+</tr>
+<tr>
+<td><code>objects</code></td>
+<td><code>dict[str, CDispatch]</code></td>
+<td>Validated COM objects, keyed by name.</td>
+</tr>
+<tr>
+<td><code>_properties</code></td>
+<td><code>dict[str, str]</code></td>
+<td><code>{property: unit}</code>. Exposed as <code>properties</code>.</td>
+</tr>
+<tr>
+<td><code>comObjs_properties</code></td>
+<td><code>dict</code></td>
+<td>Cache <code>{name: {property: (COM property object, unit)}}</code>.</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td><code>dict</code></td>
+<td>Values read in the most recent step, <code>{name: {'time': t, property: value}}</code>.</td>
+</tr>
+<tr>
+<td><code>db_conn</code>, <code>cursor</code>, <code>db_tag</code></td>
+<td></td>
+<td>Database connection, cursor and run tag.</td>
+</tr>
+<tr>
+<td><code>df</code></td>
+<td><code>DataFrame</code></td>
+<td>Created by <code>_save_to_csv()</code> after an export. Does not exist before.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="public-interface">Public interface<a class="headerlink" href="#public-interface" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>names</code></td>
+<td>Getter returns the list. The setter <strong>extends</strong> the list (<code>handler.names = [...]</code> appends).</td>
+</tr>
+<tr>
+<td><code>properties</code></td>
+<td>Getter returns the dictionary. The setter <strong>merges</strong> (<code>dict.update</code>), so defaults are kept and an existing key gets its unit replaced.</td>
+</tr>
+<tr>
+<td><code>handler['VLV-100']</code></td>
+<td>Returns the COM object of a validated name. Raises <code>KeyError</code> if the name is not in <code>objects</code>.</td>
+</tr>
+<tr>
+<td><code>get_table_name()</code></td>
+<td>Returns <code>_operation_title</code>, except for streams (<code>materialstream_properties</code>).</td>
+</tr>
+</tbody>
+</table>
+<p>The object returned by <code>handler['name']</code> is the live COM object, so it is also how you change values during a run:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Simulation</span><span class="o">.</span><span class="n">valves</span><span class="p">[</span><span class="s1">'VLV-100'</span><span class="p">]</span><span class="o">.</span><span class="n">ActuatorPosition</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s1">'%'</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="interface-used-by-the-connector">Interface used by the connector<a class="headerlink" href="#interface-used-by-the-connector" title="Permanent link">&para;</a></h3>
+<p><code>SimulationConnector</code> drives every handler through the same four methods:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>build_objects()   →  handler._build_object(handler.names, operations, subflowsheet_operations)
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>                  →  handler._build_data(0.0)
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>update()          →  handler._update_data(time=t)
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>finish()          →  handler._save_to_csv(output_folder)
+</span></code></pre></div>
+<p>The underscore marks these as internal: you rarely call them yourself. Any new class that implements these four methods can be added to the connector.</p>
+<h3 id="life-cycle">Life cycle<a class="headerlink" href="#life-cycle" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>easy_setup()        names stored in  .names
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>     │
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>build_objects()     _build_object()                 validate names → .objects
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>     │              _build_data(0.0)
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>     │                ├─ build_properties_cache()   keep COM property objects
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>     │                ├─ create_operation_table()   CREATE TABLE / ALTER TABLE
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>     │                └─ _update_data(0.0)          first row (t = 0)
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>     │
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>update()            _update_data(t)  ──► _insert_row_to_db()
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>     │
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>finish()            _save_to_csv()   (optional)
+</span></code></pre></div>
+<h3 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h3>
+<h4 id="_build_object"><code>_build_object()</code><a class="headerlink" href="#_build_object" title="Permanent link">&para;</a></h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">_build_object</span><span class="p">(</span><span class="n">name_list</span><span class="p">,</span> <span class="n">unisim_operation_object</span><span class="p">,</span> <span class="n">unisim_subflow_op_object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</span></code></pre></div>
+<p>Validates the requested names against the case and fills <code>objects</code>.</p>
+<ol>
+<li>Builds a sorted list of the upper-cased names of the main flowsheet and looks each requested name up with <code>binary_search</code> (so the check is case-insensitive).</li>
+<li>If found, it checks that the object's <code>TypeName</code> matches <code>_operation_title</code> and stores the COM object. A mismatch prints <code>Wrong type for X: expected A, got B</code>.</li>
+<li>If not found, it tries each subflowsheet collection in order. If every attempt fails (or there are no subflowsheets), it prints <code>'X' not found in &lt;type&gt; list.</code></li>
+<li>Names that failed are <strong>removed from <code>name_list</code> in place</strong>. Because the connector passes <code>handler.names</code>, afterwards <code>names</code> contains only valid names.</li>
+</ol>
+<h4 id="build_properties_cache"><code>build_properties_cache()</code><a class="headerlink" href="#build_properties_cache" title="Permanent link">&para;</a></h4>
+<p>For each valid object and each property, it fetches the COM property object once (<code>getattr(obj, prop_name)</code>) and stores it with its unit in <code>comObjs_properties</code>. Each later step then only calls <code>GetValue(unit)</code>. The authors report a 150% speed-up in data collection from this cache, because every attribute lookup crosses the Python/COM boundary.</p>
+<div class="admonition warning">
+<p class="admonition-title">A property that does not exist on the object</p>
+<p>If <code>getattr</code> fails, the property is skipped silently and is absent from the cache. The step then has no value for it, and <code>_insert_row_to_db()</code> raises a <code>KeyError</code> for that property. In practice, a misspelled or unsupported property name fails during <code>build_objects()</code>. Check the exact name in the case before adding it (see <a href="../../reference/com-navigation/">COM Navigation</a>).</p>
+</div>
+<h4 id="_build_data"><code>_build_data()</code><a class="headerlink" href="#_build_data" title="Permanent link">&para;</a></h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">_build_data</span><span class="p">(</span><span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</span></code></pre></div>
+<p>Initializes the recording: builds the property cache, creates (or evolves) the table, and records the first row.</p>
+<h4 id="_update_data"><code>_update_data()</code><a class="headerlink" href="#_update_data" title="Permanent link">&para;</a></h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">_update_data</span><span class="p">(</span><span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</span></code></pre></div>
+<p>Reads every cached property with <code>GetValue(unit)</code> and stores the result in <code>data</code>. A value that cannot be read is stored as <code>None</code> (<code>NULL</code> in the database) and the run continues. After each object, it calls <code>_insert_row_to_db(self.data)</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Repeated writes</p>
+<p>The insert is called inside the loop over objects and receives the whole <code>data</code> dictionary, so earlier objects are written again for each new object. The upsert makes this harmless for the data, but it means roughly n(n+1)/2 row writes per step for n objects, each followed by a commit.</p>
+</div>
+<h4 id="_insert_row_to_db"><code>_insert_row_to_db()</code><a class="headerlink" href="#_insert_row_to_db" title="Permanent link">&para;</a></h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">_insert_row_to_db</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</span></code></pre></div>
+<p>Writes one row per object with the columns <code>name</code>, <code>time</code>, <code>simulation_tag</code>, <code>date</code> and one column per property.</p>
+<ul>
+<li><code>time</code> is formatted with four decimals (<code>:.4f</code>) and <code>date</code> is the current day as <code>dd-mm-yyyy</code>.</li>
+<li>It is an <strong>upsert</strong>: a repeated <code>(name, time, simulation_tag)</code> overwrites the property values.</li>
+<li>It commits at the end.</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">A handler with objects but no properties fails</p>
+<p>The upsert clause is built from the property names. With an empty <code>properties</code> dictionary (the default of <code>Pumps</code>), the generated SQL is incomplete and <code>build_objects()</code> raises <code>sqlite3.OperationalError: incomplete input</code>. If you list pumps, add at least one property first (for example <code>Simulation.pumps.properties = {'Energy': 'kW'}</code>). An empty <code>PUMPS</code> list is fine.</p>
+</div>
+<h4 id="create_operation_table"><code>create_operation_table()</code><a class="headerlink" href="#create_operation_table" title="Permanent link">&para;</a></h4>
+<p>Creates the table if needed, with <code>name TEXT</code>, <code>time REAL</code>, <code>simulation_tag TEXT</code>, <code>date TEXT</code> and one <code>REAL</code> column per property, with primary key <code>(name, time, simulation_tag)</code>. It then compares the table with <code>properties</code> and runs <code>ALTER TABLE ... ADD COLUMN</code> for each missing property, printing <code>new column added to &lt;table&gt; &lt;property&gt;</code>. This is what allows a database from an earlier run to accept new properties.</p>
+<h4 id="_save_to_csv"><code>_save_to_csv()</code><a class="headerlink" href="#_save_to_csv" title="Permanent link">&para;</a></h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">_save_to_csv</span><span class="p">(</span><span class="n">output_folder</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</span></code></pre></div>
+<p>Selects all columns except <code>simulation_tag</code> for the current tag, builds a DataFrame indexed by <code>name</code>, keeps it in <code>self.df</code> and writes <code>&lt;output_folder&gt;&lt;TAG&gt;_&lt;table&gt;_data.csv</code>. Nothing is written when there are no rows. The path is built by concatenation, so the folder must end with a separator.</p>
+<h3 id="overridden-behavior">Overridden behavior<a class="headerlink" href="#overridden-behavior" title="Permanent link">&para;</a></h3>
+<p><strong><code>Pipesegs</code></strong> replaces <code>_update_data()</code>. It reads <code>GetValue</code> and, if the property is a vector (segment properties such as <code>SegmentLength</code>), falls back to <code>GetValues</code> and stores the <strong>sum</strong> of the segments. A sum makes sense for lengths and elevation changes, not for diameters.</p>
+<div class="admonition warning">
+<p class="admonition-title">Verify pipes before relying on them</p>
+<p><code>Pipesegs._update_data()</code> stores one-row DataFrames in <code>data</code>, while <code>_insert_row_to_db()</code> formats <code>data_['time']</code> with <code>:.4f</code>, which pandas does not support for a Series (<code>TypeError</code>). From reading the code, listing a pipe is likely to fail at <code>build_objects()</code>. Neither example script lists pipes (<code>PIPES = []</code>), so this path is untested. Check it on a case with pipes before using it.</p>
+</div>
+<p><strong><code>MaterialStreams</code></strong> overrides <code>_build_data()</code>, <code>_update_data()</code> and <code>_save_to_csv()</code> to add component and phase data. See <a href="#materialstreams">MaterialStreams</a>.</p>
+<p><strong><code>Spreadsheets</code></strong> implements its own versions of the four methods, with a <code>{spreadsheet: [cells]}</code> dictionary in place of names. See <a href="#spreadsheets">Spreadsheets</a>.</p>
+<hr />
+<h2 id="equipment-classes">Equipment classes<a class="headerlink" href="#equipment-classes" title="Permanent link">&para;</a></h2>
+<p>Each class is a few lines: it sets <code>_operation_title</code> (the UniSim <code>TypeName</code>) and the default <code>properties</code> (<code>{name: unit}</code>). Everything else is inherited from <code>Operation</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute of <code>SimulationConnector</code></th>
+<th>Class</th>
+<th>UniSim <code>TypeName</code></th>
+<th>Default properties</th>
+<th>Table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>valves</code></td>
+<td><code>Valves</code></td>
+<td><code>valveop</code></td>
+<td><code>ActuatorPosition</code>, <code>PressureDrop</code>, <code>FeedTemperature</code>, <code>FeedPressure</code>, <code>MolarFlow</code>, <code>MassFlow</code></td>
+<td><code>valveop</code></td>
+</tr>
+<tr>
+<td><code>pumps</code></td>
+<td><code>Pumps</code></td>
+<td><code>pumpop</code></td>
+<td><em>(none)</em></td>
+<td><code>pumpop</code></td>
+</tr>
+<tr>
+<td><code>compressors</code></td>
+<td><code>Compressors</code></td>
+<td><code>compressor</code></td>
+<td><code>MassFlow</code>, <code>FeedTemperature</code>, <code>FeedPressure</code>, <code>CompressorSpeed</code>, <code>CompAdiabaticEff</code>, <code>AdiabaticHead</code>, <code>Energy</code>, <code>PressureIncrease</code></td>
+<td><code>compressor</code></td>
+</tr>
+<tr>
+<td><code>controllers</code></td>
+<td><code>Controllers</code></td>
+<td><code>fbcontrolop</code></td>
+<td><code>SP</code>, <code>PV</code>, <code>OP</code>, <code>RampDuration</code></td>
+<td><code>fbcontrolop</code></td>
+</tr>
+<tr>
+<td><code>heat_exchangers</code></td>
+<td><code>HeatExchangers</code></td>
+<td><code>heatexop</code></td>
+<td><code>Duty</code></td>
+<td><code>heatexop</code></td>
+</tr>
+<tr>
+<td><code>flashtanks</code></td>
+<td><code>Flashtanks</code></td>
+<td><code>flashtank</code></td>
+<td><code>VesselPressure</code>, <code>VesselTemperature</code></td>
+<td><code>flashtank</code></td>
+</tr>
+<tr>
+<td><code>heaters</code></td>
+<td><code>Heaters</code></td>
+<td><code>heaterop</code></td>
+<td><code>MassFlow</code>, <code>FeedTemperature</code>, <code>FeedPressure</code>, <code>ProductTemperature</code></td>
+<td><code>heaterop</code></td>
+</tr>
+<tr>
+<td><code>coolers</code></td>
+<td><code>Coolers</code></td>
+<td><code>coolerop</code></td>
+<td><code>MassFlow</code>, <code>FeedTemperature</code>, <code>FeedPressure</code>, <code>ProductTemperature</code></td>
+<td><code>coolerop</code></td>
+</tr>
+<tr>
+<td><code>pipes</code></td>
+<td><code>Pipesegs</code></td>
+<td><code>pipeseg</code></td>
+<td><code>PressureDrop</code></td>
+<td><code>pipeseg</code></td>
+</tr>
+<tr>
+<td><code>material_streams</code></td>
+<td><code>MaterialStreams</code></td>
+<td><code>materialstream</code></td>
+<td>see <a href="#materialstreams">MaterialStreams</a></td>
+<td><code>materialstream_properties</code></td>
+</tr>
+<tr>
+<td><code>spreadsheets</code></td>
+<td><code>Spreadsheets</code></td>
+<td><code>spreadsheetop</code></td>
+<td>cells chosen in the setup</td>
+<td><code>spreadsheet_&lt;NAME&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Pumps have no default properties</p>
+<p><code>Pumps</code> starts with an empty property list. Listing a pump without adding at least one property makes <code>build_objects()</code> fail (see <a href="#_insert_row_to_db"><code>_insert_row_to_db()</code></a>). Add what you need before <code>build_objects()</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">Simulation</span><span class="o">.</span><span class="n">pumps</span><span class="o">.</span><span class="n">properties</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Energy'</span><span class="p">:</span> <span class="s1">'kW'</span><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<p>The complete reference of default properties and units is in <a href="../../reference/operations-reference/">Operations</a>.</p>
+<hr />
+<h2 id="materialstreams">MaterialStreams<a class="headerlink" href="#materialstreams" title="Permanent link">&para;</a></h2>
+<p><code>MaterialStreams</code> records the state of the material streams of the flowsheet. It is the most detailed handler of the library, because a stream carries information at three levels: the stream as a whole, its components, and each of its phases. It is available as <code>Simulation.material_streams</code>.</p>
+<p>Unlike the equipment classes, streams are searched in <code>Flowsheet.Streams</code> (and in the <code>Streams</code> collection of each subflowsheet), not in <code>Flowsheet.Operations</code>.</p>
+<h3 id="three-levels-of-data">Three levels of data<a class="headerlink" href="#three-levels-of-data" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Dictionary</th>
+<th>Default content</th>
+<th>Tables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bulk</td>
+<td><code>properties</code></td>
+<td><code>Pressure</code>, <code>StdGasFlow</code>, <code>MassFlow</code>, <code>MolarFlow</code>, <code>StdLiqVolFlow</code>, <code>Temperature</code>, <code>MassDensity</code>, <code>VapourFraction</code>, <code>ActualGasFlow</code>, <code>ActualLiqFlow</code>, <code>ActualVolumeFlow</code></td>
+<td><code>materialstream_properties</code></td>
+</tr>
+<tr>
+<td>Components</td>
+<td><code>components_properties</code></td>
+<td><code>ComponentMassFlow</code>, <code>ComponentMolarFlow</code>, <code>ComponentMolarFraction</code>, <code>ComponentMassFraction</code></td>
+<td><code>materialstream_components</code></td>
+</tr>
+<tr>
+<td>Phases</td>
+<td><code>phase_properties</code></td>
+<td><code>MassFlow</code>, <code>MolarFlow</code>, <code>MassDensity</code>, <code>ActualVolumeFlow</code>, <code>Viscosity</code>, <code>PhaseFraction</code></td>
+<td><code>&lt;phase&gt;_properties</code> and <code>&lt;phase&gt;_components</code></td>
+</tr>
+</tbody>
+</table>
+<p>The three phases are <code>VapourPhase</code>, <code>LightLiquidPhase</code> and <code>HeavyLiquidPhase</code>, so the phase tables are <code>vapourphase_properties</code>, <code>vapourphase_components</code>, <code>lightliquidphase_properties</code>, <code>lightliquidphase_components</code>, <code>heavyliquidphase_properties</code> and <code>heavyliquidphase_components</code>.</p>
+<p>Phase data is only collected for the streams listed in <code>material_streams_phase</code> (stored in <code>collected_phases</code>). It is the heaviest part of the collection, so request it only where you need it.</p>
+<h3 id="how-each-level-is-stored">How each level is stored<a class="headerlink" href="#how-each-level-is-stored" title="Permanent link">&para;</a></h3>
+<p><strong>Bulk properties</strong> are scalars, handled exactly like any other operation: one row per stream and time, with one column per property.</p>
+<p><strong>Components</strong> are vectors with one value per chemical component. They are read with <code>GetValues(unit)</code> and stored in <code>materialstream_components</code> with <strong>one column per component</strong> and one row per property:</p>
+<table>
+<thead>
+<tr>
+<th>stream_name</th>
+<th>time</th>
+<th>simulation_tag</th>
+<th>property_type</th>
+<th>Methane</th>
+<th>Ethane</th>
+<th>...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>feed_sep</code></td>
+<td>0.033</td>
+<td><code>teste</code></td>
+<td><code>ComponentMassFlow</code></td>
+<td>120.4</td>
+<td>35.1</td>
+<td>...</td>
+</tr>
+<tr>
+<td><code>feed_sep</code></td>
+<td>0.033</td>
+<td><code>teste</code></td>
+<td><code>ComponentMolarFraction</code></td>
+<td>0.71</td>
+<td>0.19</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Phases</strong> follow the same idea. The phase property tables have one column per property (<code>stream_name</code>, <code>time</code>, <code>simulation_tag</code>, <code>MassFlow</code>, ...). The phase component tables use <code>property_type</code> with the values <code>MassFractions</code> and <code>MolarFractions</code>, and one column per component.</p>
+<div class="admonition note">
+<p class="admonition-title">Component names</p>
+<p>The component columns come from the fluid package of the <strong>first valid stream</strong>. All recorded streams are assumed to share the same fluid package.</p>
+</div>
+<h3 id="customizing-the-properties">Customizing the properties<a class="headerlink" href="#customizing-the-properties" title="Permanent link">&para;</a></h3>
+<p>Each dictionary accepts additions in the same way as the equipment handlers: assigning <strong>merges</strong> with the existing entries.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">Simulation</span><span class="o">.</span><span class="n">material_streams</span><span class="o">.</span><span class="n">properties</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Temperature'</span><span class="p">:</span> <span class="s1">'K'</span><span class="p">}</span>            <span class="c1"># bulk</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">Simulation</span><span class="o">.</span><span class="n">material_streams</span><span class="o">.</span><span class="n">phase_properties</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Temperature'</span><span class="p">:</span> <span class="s1">'K'</span><span class="p">}</span>      <span class="c1"># per phase</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">Simulation</span><span class="o">.</span><span class="n">material_streams</span><span class="o">.</span><span class="n">components_properties</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'ComponentMolarFraction'</span><span class="p">:</span> <span class="s1">''</span><span class="p">}</span>
+</span></code></pre></div>
+<p>Assigning a key that already exists replaces its unit.</p>
+<div class="admonition warning">
+<p class="admonition-title">Set properties before <code>build_objects()</code></p>
+<p>The COM property objects are cached and the tables are created inside <code>build_objects()</code>. Changes made afterwards are ignored.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Units are not stored in the database</p>
+<p>The tables have no unit column. If you change a unit and reuse the same database, values of different runs will be mixed with no marker. Each run writes the units it used to <code>_simulation_properties.txt</code>, and a new tag per unit configuration keeps runs distinguishable.</p>
+</div>
+<h3 id="reading-the-data">Reading the data<a class="headerlink" href="#reading-the-data" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span><span class="o">,</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">'db_name1.db'</span><span class="p">)</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># Bulk</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">bulk</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="s2">"SELECT time, Temperature, MassFlow FROM materialstream_properties "</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    <span class="s2">"WHERE name = 'feed_sep' AND simulation_tag = 'teste' ORDER BY time"</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="c1"># Components of the stream</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="n">comps</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>    <span class="s2">"SELECT * FROM materialstream_components "</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>    <span class="s2">"WHERE stream_name = 'feed_sep' AND property_type = 'ComponentMolarFraction' "</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>    <span class="s2">"AND simulation_tag = 'teste' ORDER BY time"</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c1"># One phase</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="n">vapour</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>    <span class="s2">"SELECT time, MassFlow, Viscosity FROM vapourphase_properties "</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>    <span class="s2">"WHERE stream_name = 'pump_1_in' AND simulation_tag = 'teste' ORDER BY time"</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Note that the bulk table identifies the stream in the <code>name</code> column, while the components and phase tables use <code>stream_name</code>. See <a href="#database">Database Tables</a>.</p>
+<h3 id="behavior-to-be-aware-of">Behavior to be aware of<a class="headerlink" href="#behavior-to-be-aware-of" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A property that cannot be read (for example, the viscosity of a phase that does not exist in that stream) is stored as <code>NULL</code>. The run continues.</li>
+<li>At least <strong>one valid stream</strong> is required. The library reads the component list from the first stream in <code>objects</code>. If every name is rejected, <code>build_objects()</code> fails at this point.</li>
+<li>The bulk and phase <strong>property</strong> tables are <em>upserted</em> (a repeated <code>(stream, time, tag)</code> overwrites the row). The <strong>component</strong> tables use <code>INSERT OR IGNORE</code>, so a repeated key keeps the old values. When you rerun with the same database, use a new tag.</li>
+</ul>
+<h2 id="spreadsheets">Spreadsheets<a class="headerlink" href="#spreadsheets" title="Permanent link">&para;</a></h2>
+<p><code>Spreadsheets</code> is not an <code>Operation</code> subclass because it reads <strong>cells</strong>, not named properties. The setup is <code>{spreadsheet: [cells]}</code>. At each step it reads <code>Cell(cell).CellValue</code> and stores one row per cell in a table named <code>spreadsheet_&lt;NAME&gt;</code> (name in upper case) with the columns <code>cell</code>, <code>time</code>, <code>simulation_tag</code>, <code>date</code>, <code>value</code>.</p>
+<hr />
+<h2 id="simulationconnector">SimulationConnector<a class="headerlink" href="#simulationconnector" title="Permanent link">&para;</a></h2>
+<p>The only class most users need.</p>
+<h3 id="creating-the-connector">Creating the connector<a class="headerlink" href="#creating-the-connector" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">SimulationConnector</span><span class="p">(</span><span class="n">file_path_unisim</span><span class="p">,</span> <span class="n">OUTPUT_FOLDER</span><span class="p">,</span> <span class="n">db_tag</span><span class="p">,</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>                    <span class="n">db_name</span><span class="o">=</span><span class="s1">'Simulation.db'</span><span class="p">,</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>                    <span class="n">continue_simulation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">case_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file_path_unisim</code></td>
+<td>Path of the <code>.usc</code> file</td>
+</tr>
+<tr>
+<td><code>OUTPUT_FOLDER</code></td>
+<td>Folder for text and CSV outputs (created if missing)</td>
+</tr>
+<tr>
+<td><code>db_tag</code></td>
+<td>Label of this run, stored in every row</td>
+</tr>
+<tr>
+<td><code>db_name</code></td>
+<td>SQLite file</td>
+</tr>
+<tr>
+<td><code>continue_simulation</code></td>
+<td><code>False</code> resets the integrator, <code>True</code> keeps the saved state</td>
+</tr>
+<tr>
+<td><code>case_visible</code></td>
+<td>Show or hide the UniSim window</td>
+</tr>
+</tbody>
+</table>
+<p>The constructor, in order:</p>
+<ol>
+<li>Opens the SQLite connection and sets <code>synchronous = NORMAL</code>, <code>journal_mode = WAL</code> and a ~256 MB cache, which favors fast writes during long runs.</li>
+<li>Creates <code>OUTPUT_FOLDER</code> if needed.</li>
+<li>Starts UniSim (<code>UnisimDesign.Application</code>), opens the case and sets its visibility.</li>
+<li>Stores the UniSim process id in <code>process_id</code> and gets the solver integrator (<code>Solver.Integrator</code>) as <code>integrador</code>, with <code>Mode = 0</code>. The integrator is reset when <code>continue_simulation</code> is <code>False</code>.</li>
+<li>Creates one handler per operation type (<code>material_streams</code>, <code>valves</code>, <code>pumps</code>, <code>pipes</code>, <code>heat_exchangers</code>, <code>compressors</code>, <code>controllers</code>, <code>flashtanks</code>, <code>coolers</code>, <code>heaters</code>, <code>spreadsheets</code>).</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title"><code>operations</code> list</p>
+<p><code>Simulation.operations</code> holds the <strong>equipment</strong> handlers only. <code>material_streams</code> and <code>spreadsheets</code> are handled separately by the library because their data structures differ.</p>
+</div>
+<h3 id="main-methods">Main methods<a class="headerlink" href="#main-methods" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>When</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#easy_setup"><code>easy_setup(**kwargs)</code></a></td>
+<td>After creating</td>
+<td>Stores the names to record</td>
+</tr>
+<tr>
+<td><a href="#build_objects"><code>build_objects(subFlowsheet=[])</code></a></td>
+<td>After setup</td>
+<td>Validates names, creates tables, records t = 0</td>
+</tr>
+<tr>
+<td><a href="#update"><code>update(sample_time, time_unit, id)</code></a></td>
+<td>Every step</td>
+<td>Advances the solver and records one row per object</td>
+</tr>
+<tr>
+<td><a href="#finish"><code>finish(quit_unisim, save_simulation, export_csv)</code></a></td>
+<td>End</td>
+<td>Writes summary files, closes database and UniSim</td>
+</tr>
+</tbody>
+</table>
+<h2 id="finishing-a-run">Finishing a run<a class="headerlink" href="#finishing-a-run" title="Permanent link">&para;</a></h2>
+<p>A run ends with <code>Simulation.finish(...)</code>. It closes the loop that started with <code>SimulationConnector(...)</code>: it writes the documentation files of the run, optionally exports the data, and releases the database and UniSim.</p>
+<h3 id="sequence">Sequence<a class="headerlink" href="#sequence" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Summary file</strong>: writes <code>_simulation_summary.txt</code> with the case file name and, for each group, the objects that were actually found. This is the quickest way to confirm which names survived the validation of <code>build_objects()</code>.</li>
+<li><strong>Units file</strong>: writes <code>_simulation_properties.txt</code> with every tracked property and its unit, per operation type (and per level for material streams).</li>
+<li><strong>CSV export</strong> (only if <code>export_csv=True</code>): writes one file per table, filtered by the current tag, as <code>&lt;TAG&gt;_&lt;table&gt;_data.csv</code>.</li>
+<li><strong>Database</strong>: closes the SQLite connection.</li>
+<li><strong>UniSim</strong> (only if <code>quit_unisim=True</code>): closes the case and quits the application.</li>
+</ol>
+<p>Errors in steps 1 to 3 are printed with a traceback but do not prevent the following steps. The database is always closed.</p>
+<h3 id="output-files">Output files<a class="headerlink" href="#output-files" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Always written</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_simulation_summary.txt</code></td>
+<td>yes</td>
+<td>Case name and objects found per group</td>
+</tr>
+<tr>
+<td><code>_simulation_properties.txt</code></td>
+<td>yes</td>
+<td>Tracked properties and units</td>
+</tr>
+<tr>
+<td><code>&lt;TAG&gt;_&lt;table&gt;_data.csv</code></td>
+<td>only with <code>export_csv=True</code></td>
+<td>Table content for this tag (<code>simulation_tag</code> excluded)</td>
+</tr>
+<tr>
+<td><code>*.db</code></td>
+<td>created at start</td>
+<td>All recorded data, always available even without CSV export</td>
+</tr>
+</tbody>
+</table>
+<h3 id="closing-behavior">Closing behavior<a class="headerlink" href="#closing-behavior" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th><code>quit_unisim</code></th>
+<th><code>save_simulation</code></th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal end</td>
+<td><code>True</code></td>
+<td><code>True</code></td>
+<td>Case saved, UniSim closed</td>
+</tr>
+<tr>
+<td>Normal end</td>
+<td><code>True</code></td>
+<td><code>False</code></td>
+<td>Case closed without saving, UniSim closed</td>
+</tr>
+<tr>
+<td>Normal end, keep it open</td>
+<td><code>False</code></td>
+<td>any</td>
+<td>UniSim stays open (useful for debugging)</td>
+</tr>
+<tr>
+<td>Run aborted by an error</td>
+<td><code>False</code> (recommended)</td>
+<td>ignored</td>
+<td>UniSim stays open so you can inspect the state</td>
+</tr>
+</tbody>
+</table>
+<p>When <code>save_simulation</code> is <code>None</code> (the default), the library saves only if the run was created with <code>continue_simulation=True</code>. This makes a <em>continue</em> workflow save its state automatically, while a first run does not overwrite the original case.</p>
+<div class="admonition warning">
+<p class="admonition-title">The <code>_simulation_abort</code> flag</p>
+<p>The connector has an internal flag, <code>_simulation_abort</code>, initialized to <code>False</code>. When it is <code>True</code> and <code>quit_unisim=True</code>, <code>finish()</code> does not close the case normally and instead terminates UniSim with <code>taskkill /f /im unisimdesign.exe</code>, which closes <strong>every</strong> UniSim process on the machine. The library itself never sets this flag, so the branch is only reached if your own code sets it. For ordinary errors, pass <code>quit_unisim=False</code> and close UniSim yourself.</p>
+</div>
+<h3 id="recommended-pattern">Recommended pattern<a class="headerlink" href="#recommended-pattern" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">aborted</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_SIM_STEPS</span><span class="p">):</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>        <span class="n">Simulation</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">TIME_STEP_SIZE</span><span class="p">,</span> <span class="n">TIME_STEP_UNIT</span><span class="p">)</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>        <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>        <span class="n">aborted</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>        <span class="k">break</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="n">Simulation</span><span class="o">.</span><span class="n">finish</span><span class="p">(</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>    <span class="n">quit_unisim</span><span class="o">=</span><span class="ow">not</span> <span class="n">aborted</span><span class="p">,</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>    <span class="n">save_simulation</span><span class="o">=</span><span class="n">SAVE_SIMULATION</span><span class="p">,</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>    <span class="n">export_csv</span><span class="o">=</span><span class="n">EXPORT_CSV</span><span class="p">,</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="p">)</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Trailing separator in <code>OUTPUT_FOLDER</code></p>
+<p>CSV paths are built by concatenating <code>OUTPUT_FOLDER</code> and the file name. End the folder path with a separator (<code>os.path.join(folder, '')</code>), as explained in <a href="../main/#2-run-configuration">main.py</a>.</p>
+</div>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
+<p>Reference of the public methods of <code>SimulationConnector</code>. The usual order of a run is <code>easy_setup()</code> → <code>build_objects()</code> → <code>update()</code> (repeated) → <code>finish()</code>.</p>
+<h3 id="easy_setup">Easy_Setup()<a class="headerlink" href="#easy_setup" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">easy_setup</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</span></code></pre></div>
+<p>Declares <strong>what to record</strong>. It receives one list of names per operation type, validates them and stores them in the handlers. It does not talk to UniSim: nothing is checked against the case until <a href="#build_objects"><code>build_objects()</code></a>.</p>
+<h4 id="arguments">Arguments<a class="headerlink" href="#arguments" title="Permanent link">&para;</a></h4>
+<p>All twelve keyword arguments are required, even when empty.</p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Handler that receives it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pumps</code></td>
+<td><code>list[str]</code></td>
+<td><code>pumps</code></td>
+</tr>
+<tr>
+<td><code>valves</code></td>
+<td><code>list[str]</code></td>
+<td><code>valves</code></td>
+</tr>
+<tr>
+<td><code>flashtanks</code></td>
+<td><code>list[str]</code></td>
+<td><code>flashtanks</code></td>
+</tr>
+<tr>
+<td><code>compressors</code></td>
+<td><code>list[str]</code></td>
+<td><code>compressors</code></td>
+</tr>
+<tr>
+<td><code>controllers</code></td>
+<td><code>list[str]</code></td>
+<td><code>controllers</code></td>
+</tr>
+<tr>
+<td><code>heat_exchangers</code></td>
+<td><code>list[str]</code></td>
+<td><code>heat_exchangers</code></td>
+</tr>
+<tr>
+<td><code>material_streams</code></td>
+<td><code>list[str]</code></td>
+<td><code>material_streams</code></td>
+</tr>
+<tr>
+<td><code>material_streams_phase</code></td>
+<td><code>list[str]</code></td>
+<td><code>material_streams</code> (subset with phase data)</td>
+</tr>
+<tr>
+<td><code>heaters</code></td>
+<td><code>list[str]</code></td>
+<td><code>heaters</code></td>
+</tr>
+<tr>
+<td><code>coolers</code></td>
+<td><code>list[str]</code></td>
+<td><code>coolers</code></td>
+</tr>
+<tr>
+<td><code>pipes</code></td>
+<td><code>list[str]</code></td>
+<td><code>pipes</code></td>
+</tr>
+<tr>
+<td><code>spreadsheets</code></td>
+<td><code>dict[str, list[str]]</code></td>
+<td><code>spreadsheets</code> (<code>{name: [cells]}</code>)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="what-it-does">What it does<a class="headerlink" href="#what-it-does" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Validates the types</strong>. A <code>list</code> of strings is expected for every argument except <code>spreadsheets</code>, which must be a dictionary of lists. Other types (a tuple or a set, for example) or non-string items raise <code>TypeError</code>.</li>
+<li><strong>Removes duplicates</strong> by converting each list to a set. The original order is lost.</li>
+<li><strong>Merges the stream lists</strong>. <code>material_streams</code> receives the union of <code>material_streams</code> and <code>material_streams_phase</code>, and <code>collected_phases</code> receives <code>material_streams_phase</code>. A stream that needs phase data therefore does not have to be listed twice.</li>
+<li><strong>Stores the names</strong> in each handler (<code>Simulation.valves.names</code>, ...) and the cell map in <code>Simulation.spreadsheets.cells</code>.</li>
+</ol>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">Simulation</span><span class="o">.</span><span class="n">easy_setup</span><span class="p">(</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>    <span class="n">pumps</span><span class="o">=</span><span class="p">[],</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    <span class="n">valves</span><span class="o">=</span><span class="p">[</span><span class="s1">'VLV-100'</span><span class="p">,</span> <span class="s1">'VLV-101'</span><span class="p">],</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    <span class="n">flashtanks</span><span class="o">=</span><span class="p">[</span><span class="s1">'V-100'</span><span class="p">],</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>    <span class="n">compressors</span><span class="o">=</span><span class="p">[</span><span class="s1">'pump_1'</span><span class="p">,</span> <span class="s1">'pump_2'</span><span class="p">],</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>    <span class="n">controllers</span><span class="o">=</span><span class="p">[</span><span class="s1">'LIC-100'</span><span class="p">],</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>    <span class="n">heat_exchangers</span><span class="o">=</span><span class="p">[</span><span class="s1">'E-100'</span><span class="p">],</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>    <span class="n">material_streams</span><span class="o">=</span><span class="p">[</span><span class="s1">'feed_sep'</span><span class="p">,</span> <span class="s1">'gas_sep'</span><span class="p">],</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>    <span class="n">material_streams_phase</span><span class="o">=</span><span class="p">[</span><span class="s1">'pump_1_in'</span><span class="p">],</span>      <span class="c1"># also added to material_streams</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>    <span class="n">heaters</span><span class="o">=</span><span class="p">[],</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>    <span class="n">coolers</span><span class="o">=</span><span class="p">[],</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>    <span class="n">pipes</span><span class="o">=</span><span class="p">[],</span>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>    <span class="n">spreadsheets</span><span class="o">=</span><span class="p">{</span><span class="s1">'RGO'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'B24'</span><span class="p">,</span> <span class="s1">'F24'</span><span class="p">]},</span>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="p">)</span>
+</span></code></pre></div>
+<h4 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Missing argument:</strong> raises <code>KeyError</code> (for example <code>KeyError: 'pumps'</code>). Pass an empty list instead.</li>
+<li><strong>Call it once.</strong> Each call <em>appends</em> to the handlers' name lists, so a second call duplicates names. The spreadsheet map and <code>collected_phases</code> are replaced instead.</li>
+<li><strong>Names in the wrong place</strong> are not detected here. A valve listed under <code>pumps</code> is only reported by <code>build_objects()</code>.</li>
+<li>The usual source of these lists is the <a href="../setup/">setup file</a>.</li>
+</ul>
+<h3 id="build_objects">Build_Objects()<a class="headerlink" href="#build_objects" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">build_objects</span><span class="p">(</span><span class="n">subFlowsheet</span><span class="o">=</span><span class="p">[])</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</span></code></pre></div>
+<p>Connects the names declared in <code>easy_setup()</code> to the real objects in the case. For each name it searches the main flowsheet and then the subflowsheets in <code>subFlowsheet</code>, checks the UniSim type, and discards names that are missing or of the wrong type (with a printed message). Then it builds the property caches, creates the tables and records the <strong>t = 0</strong> row.</p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>subFlowsheet</code></td>
+<td>Names of subflowsheets to search (e.g. <code>['ColumnSubFlowsheet']</code>). Defaults to none.</td>
+</tr>
+</tbody>
+</table>
+<p>Add custom properties <strong>before</strong> calling it. See <a href="../main/#4-adding-properties-that-are-not-recorded-by-default">main.py</a>.</p>
+<h3 id="update">Update()<a class="headerlink" href="#update" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">update</span><span class="p">(</span><span class="n">sample_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_unit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</span></code></pre></div>
+<p>Advances the solver and records one row per tracked object.</p>
+<table>
+<thead>
+<tr>
+<th>Call</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>update(1.0, 'hr')</code></td>
+<td>Runs the solver for the interval (<code>RunFor</code>), then records at the new solver time</td>
+</tr>
+<tr>
+<td><code>update(id=10)</code></td>
+<td>Records at the given identifier without advancing the solver</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Numeric time or id</p>
+<p>The time column is written with a fixed numeric format (<code>:.4f</code>), so <code>id</code> must be a <strong>number</strong>. Calling <code>update()</code> with no arguments is not supported in the current version for the same reason: the time would be an empty string.</p>
+</div>
+<h3 id="finish">Finish()<a class="headerlink" href="#finish" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">finish</span><span class="p">(</span><span class="n">quit_unisim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save_simulation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">export_csv</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</span></code></pre></div>
+<p>Writes the run files, optionally exports CSV, closes the database and (optionally) UniSim. The full behavior, including the closing scenarios, is described in <a href="#finishing-a-run">Finishing a run</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>quit_unisim</code></td>
+<td>Close the case and quit UniSim when <code>True</code></td>
+</tr>
+<tr>
+<td><code>save_simulation</code></td>
+<td>Save the case when closing. <code>None</code> follows <code>continue_simulation</code></td>
+</tr>
+<tr>
+<td><code>export_csv</code></td>
+<td>Export every tracked table to CSV</td>
+</tr>
+</tbody>
+</table>
+<h3 id="discovery-helpers">Discovery helpers<a class="headerlink" href="#discovery-helpers" title="Permanent link">&para;</a></h3>
+<p>Use them to list the real names and types in a case. They query UniSim and do not depend on the setup.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get_material_streams()</code></td>
+<td>Sorted list of stream names</td>
+</tr>
+<tr>
+<td><code>get_valves()</code>, <code>get_pumps()</code>, <code>get_compressors()</code>, <code>get_controllers()</code>, <code>get_heatexchangers()</code>, <code>get_flashtanks()</code>, <code>get_spreadsheets()</code></td>
+<td>Names of that operation type</td>
+</tr>
+<tr>
+<td><code>get_subflowsheets()</code></td>
+<td><code>[(Name, TaggedName), ...]</code></td>
+</tr>
+<tr>
+<td><code>get_all_operations()</code></td>
+<td><code>{TypeName: [names]}</code> for every operation in the flowsheet</td>
+</tr>
+</tbody>
+</table>
+<p>There are no dedicated helpers for pipes, heaters and coolers. Use <code>get_all_operations()</code> for those.</p>
+<h3 id="custom-database-methods">Custom database methods<a class="headerlink" href="#custom-database-methods" title="Permanent link">&para;</a></h3>
+<p>The connector also exposes generic helpers to store your own data (experiment notes, derived metrics) in the same database:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>create_table(table_name, columns, primary_keys=None)</code></td>
+<td>Create a table from column definitions</td>
+</tr>
+<tr>
+<td><code>add_columns(table_name, columns)</code></td>
+<td>Add columns to an existing table</td>
+</tr>
+<tr>
+<td><code>insert_row(table_name, data, conflict_columns=None, update_columns=None)</code></td>
+<td>Insert, with optional upsert</td>
+</tr>
+<tr>
+<td><code>update_row(table_name, data, condition_columns)</code></td>
+<td>Update rows matching the condition columns</td>
+</tr>
+<tr>
+<td><code>query_table(table_name, conditions=None, order_by=None, limit=None)</code></td>
+<td>Select rows, returns a list</td>
+</tr>
+<tr>
+<td><code>get_table_info(table_name)</code></td>
+<td>Column information of a table</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="database">Database<a class="headerlink" href="#database" title="Permanent link">&para;</a></h2>
+<p>One SQLite file holds every run. Rows are separated by the <code>simulation_tag</code> column and <strong>upserted</strong> on <code>(name, time, simulation_tag)</code>, so recording the same time twice for the same tag overwrites instead of duplicating.</p>
+<p>Common columns of the equipment tables:</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>Object name</td>
+</tr>
+<tr>
+<td><code>time</code></td>
+<td>Solver time (in the unit used in <code>update</code>)</td>
+</tr>
+<tr>
+<td><code>simulation_tag</code></td>
+<td>Run label</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>Run date (<code>dd-mm-yyyy</code>)</td>
+</tr>
+<tr>
+<td><em>one column per property</em></td>
+<td>Recorded value (<code>REAL</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>Schema changes are automatic: when you add a property, the library adds the missing column to existing tables.</p>
+<p>Example query with pandas:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span><span class="o">,</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">'db_name1.db'</span><span class="p">)</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    <span class="s2">"SELECT time, ActuatorPosition, MassFlow "</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>    <span class="s2">"FROM valveop WHERE name = 'VLV-100' AND simulation_tag = 'teste' ORDER BY time"</span><span class="p">,</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>    <span class="n">conn</span><span class="p">,</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="extending-the-library">Extending the library<a class="headerlink" href="#extending-the-library" title="Permanent link">&para;</a></h2>
+<p>To support a new UniSim operation type, add a class in the same style as the existing ones:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyOperations</span><span class="p">(</span><span class="n">Operation</span><span class="p">):</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_conn</span><span class="p">,</span> <span class="n">db_tag</span><span class="p">,</span> <span class="n">cursor</span><span class="p">):</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">db_conn</span><span class="p">,</span> <span class="n">db_tag</span><span class="p">,</span> <span class="n">cursor</span><span class="p">)</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_operation_title</span> <span class="o">=</span> <span class="s1">'&lt;TypeName&gt;'</span>   <span class="c1"># UniSim TypeName of the object</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">properties</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>            <span class="c1"># PropertyName='unit',</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>        <span class="p">)</span>
+</span></code></pre></div>
+<p>Then, inside <code>SimulationConnector</code>:</p>
+<ol>
+<li>Create the handler in <code>__init__</code> (<code>self.my_operations = MyOperations(...)</code>) and add it to <code>self.operations</code>.</li>
+<li>Read its names in <code>easy_setup</code>.</li>
+<li>Add a line for it in the summary written by <code>finish()</code>.</li>
+</ol>
+<p>Use <code>get_all_operations()</code> to discover the <code>TypeName</code> of the new object.</p>
+<hr />
+<h2 id="known-limitations">Known limitations<a class="headerlink" href="#known-limitations" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Windows only</strong>, with UniSim installed (COM).</li>
+<li><code>easy_setup()</code> requires every argument, even when empty.</li>
+<li><code>build_objects(subFlowsheet=[])</code> uses a mutable default argument. This is harmless today, because the list is never modified, but passing the list explicitly is safer.</li>
+<li>Names are de-duplicated through sets, so the original order is lost.</li>
+<li>The module is a single file. This is deliberate for the current version and is expected to be split into a package in a later one.</li>
+<li>A pump listed without any property raises an SQL error in <code>build_objects()</code>.</li>
+<li>Pipe segments (<code>Pipesegs</code>) are likely to fail when listed. The code path is not exercised by the example scripts.</li>
+<li><code>Operation._update_data()</code> rewrites earlier objects for each new object in the same step, which scales quadratically with the number of objects of a type.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../setup/" class="md-footer__link md-footer__link--prev" aria-label="Previous: setup.py">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                setup.py
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../main/" class="md-footer__link md-footer__link--next" aria-label="Next: main.py">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                main.py
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/grocharibeiro/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://pypi.org/" target="_blank" rel="noopener" title="pypi.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../../assets/javascripts/workers/search.c47bb847.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a2388154.min.js"></script>
+      
+    
+  </body>
+</html>
